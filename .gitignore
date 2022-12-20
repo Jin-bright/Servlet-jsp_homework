@@ -1,0 +1,338 @@
+# git 수업 (221219)
+
+# # 깃 수업
+
+ - git 으로 작업한거는 밑에서부터 위로 쌓인다 
+
+### # git ignore 내가 작성한거 (이걸 이클립스 내에 붙여넣는거임)
+
+```
+# Created by https://www.toptal.com/developers/gitignore/api/java,windows,eclipse,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,eclipse,visualstudiocode
+
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+.apt_generated_test/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+# Uncomment this line if you wish to ignore the project description file.
+# Typically, this file would be tracked if it contains build/dependency configurations:
+#.project
+
+### Eclipse Patch ###
+# Spring Boot Tooling
+.sts4-cache/
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/java,windows,eclipse,visualstudiocode
+```
+
+### #git설정내역 -  이름&이메일
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae68cf5a-da9b-4251-9a01-c6ae8d8d1d66/Untitled.png)
+
+### #분기 & merge
+
+ - feat1으로 분기됐음 ( master / feat1) 
+
+ - 나중에 master 가 feat1을 merge하느냐 ( 아님 반대가 될수도있음 )
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/840a2023-de5a-4182-a8db-ccd65d525690/Untitled.png)
+
+# #fastforward - merge  VS   nonfastforward - merge
+
+ - fastforward 는 앞서 있는애를 ? merge할수있다는건가  ? 그다음 non
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/20ac7bdd-fccd-42d3-a44f-76215f57fc44/Untitled.png)
+
+ - non-fast forward 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8667f5a9-2777-4640-8e62-6ead20c71b4d/Untitled.png)
+
+#분기된 상황 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/af88fa2f-8bce-4a5d-935c-86e53d37a81c/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14305777-c1e4-4f48-bf8a-1d9715a00926/Untitled.png)
+
+얘는 non fastforward 방식이라네 .. ?
+
+와이 .. ?
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a9c17e9-c769-436e-9611-dec7a21ff898/Untitled.png)
+
+‘
+
+## #충돌일어나는 조건  ( conflict )
+
+1.  같은 파일을 가지고 있다 
+2.  같은 파일 내 같은 라인의 내용을 수정한다  ⇒ 
+
+   아님 같은 줄에 각각 다른 내용을 썼을떄 그런건가  ←-이거같음 , 같은 줄의 내용을 수정해버리면 얘는 어떤걸 저장해야될지모른다 ? 
+
+  confilct 나면 대기상태되고 commit이 안됨  
+
+1앞에 zzz // xxx 이렇게 같은 공간 다른 내용이 있으니까 git은 뭘 commit 할지 모르게됨 
+
+그래서 충돌나고 git이 처리를 못하게됨 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2237146-304d-4846-8981-eb4998804941/Untitled.png)
+
+## #충돌안나는 상황
+
+원본이 a.txt 
+
+추가된 애들은 4 //// 3  
+
+같은 공간을 수정하지 않았다 
+
+그래서 정상적으로 빨간 박스처럼 수정된다 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/64924753-7c11-4a3d-b86c-d3e9a8988658/Untitled.png)
+
+#되돌리기 
+
+```html
+
+*** 되돌리기 
+- revert : 지정한 커밋의 작업내용을 / 취소한 버전을 새로운 커밋으로 만든다. (충돌날수있음 )   
+- reset : 지정한 커밋으로 돌아간다.**
+
+- hard : 지정커밋이후 변경사항 버림 
+- mixed : 지정커밋이후변경사항을 unstaging area에 보관. 재추가 후 커밋 가능  
+- soft : 지정 커밋이후 변경사항을 staging area에 보관 (즉시커밋가능) 
+
+*** checkout** 
+- checkout 이란게 진짜 checkout이 아니라, 수정하고있는 계정 그 자체임 (약간 oracle 계정이라고생각하면됨) 
+```
+
+# #충돌나는 상황 연출
+
+ - 같은 자리에 다른 내용 / 우선순위 없음  / merge 하면 걍 conflict남 
+
+ - 그러면 commit이 안만들어진다  ⇒ 해결 후 수동으로 commit 해야됨  
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3dabb808-2e35-4bb7-803b-d5abca95d5f5/Untitled.png)
+
+충돌 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9b8a0ce-ca4f-4e8c-9e4e-d1af8bfb3572/Untitled.png)
+
+history 변동없음 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f982586f-de63-4b58-b5b2-1294dca7fbff/Untitled.png)
+
+## ## 수정후  git sta~에서 수동 commit 한다
+
+수정 후 다시 commit (수동)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16cbc0a5-c3e9-46b9-9c20-ce8a62fd4f9f/Untitled.png)
+
+history 변경 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2db29f2f-a3f2-43d8-992a-678604366af0/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bbcfef83-eab0-44ff-b9ad-99971cdad2e9/Untitled.png)
+
+===== 여기 까지 local repository 에서 작업한거였음 ======
+
+그러면 다른 컴텨에서도 쓸수있게 하는게 ? github클라우드 서비스임 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/12046931-8328-4a21-ac64-0a9c4a5fe3fd/Untitled.png)
+
+— 명령어로 제어해야한다 (드래그드랍금지 )
+
+**** 업로드 : push (버전을 올린다 )** 
+
+**** 원격에 있는걸 내꺼로 가져오는거 :  fetch (버전을 다운로드 개념)**
+
+fetch 하면 파란색 remote ~ 절로 가져가게 되고 저걸 merge 하게 되면 비로소 local쪽으로 들어가게된다 
+
+**** fetch + merge  = pull** 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/af2f90b6-9ef4-4d59-8e9c-95bc36fa39a6/Untitled.png)
+
+fetch한결과 
+
+- 그러면 remote tracking이 생긴다
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0771ec75-b98b-4c39-9420-40da460ddcfa/Untitled.png)
+
+fetch까지한 상황 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a5c66599-9f20-418e-ac99-1d375af60213/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/149196ac-2690-4500-b5e5-09a4216213e2/Untitled.png)
+
+모든 설정 하고 advanced에서는 allbranches 로 등록하고 push랑 fetch같이 했음 
+
+이렇게 나온거면 잘된거 ! 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a6bb5f3-e4b7-42df-973e-9306c3e42876/Untitled.png)
+
+merge 했음  → local마스터에 바영됨 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd09b605-1d33-417d-b34f-1e644613a840/Untitled.png)
+
+**— pull한결과 ( fetch + merge 같이 한 기능 )** 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/417dddd7-6a84-4f2e-93c6-ec695823bda2/Untitled.png)
+
+** 커밋은 git stage,, 
+
+** 다른 깃상으로 넘어가는거 : checkout 
+
+** 작업다끝났고 마스터에반영하는거 : merge 
+
+ - merge 방식 : 온전히부모/자식관계일때 fast forward 
+
+ - merge방식2 : 온전히 아닐때 새로 commit을 만들어서 병합하게 되는데 non-fastforward 방식 
+
+ 
+
+< git 작업의 흐름 > 
+
+# #conflict 나는 상황 + 1,5는 작업결과로 안나온다 (1220추가)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86aafde9-eed1-4494-8ef1-f578b726bf9a/Untitled.png)
+
+#revert 
+
+5’에는 4번까지한 버전을 준다 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fb1a2854-cefb-4916-b3e7-0879e0e67cc0/Untitled.png)
+
+#reset 
+
+5번을 취소하고싶으면 4번에서 reset한다 ? 
+
+mixed / soft / hard
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be1ee6af-3ae5-4fec-a038-8c62363c33b8/Untitled.png)
+
+#작업을 할때는
+
+ 선pull후push
