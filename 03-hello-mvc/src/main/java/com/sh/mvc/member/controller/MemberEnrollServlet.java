@@ -37,8 +37,6 @@ public class MemberEnrollServlet extends HttpServlet {
 
 	/**
 	 * post : 회원가입 처리 
-	 * - db insert 
-	 * - redirect ( url이 남아서 새로고침되지않도록 index페이지로 redirect 시켜준다 )  
 	 * 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,15 +45,14 @@ public class MemberEnrollServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		try {
 			// 1. 사용자 입력값 가져오기 -> 멤버객체에 옮겨담기 
-			String memberId = request.getParameter("memberId"); //네임값 가져와야됨 (전송할때는 네임값)
-			String password = request.getParameter("password"); //네임값 가져와야됨 (전송할때는 네임값)
-			String memberName = request.getParameter("memberName"); //네임값 가져와야됨 (전송할때는 네임값)
-			String _birthday = request.getParameter("birthday"); //네임값 가져와야됨 (전송할때는 네임값) /"1988-08-08" 이걸 sql date로 바꿔야됨 
-			// 빈문자열이 넘어올수도있음 사용자가 아무값도 입력안했고 + 기본값이 정해져있을떄 
-			String email = request.getParameter("email"); //네임값 가져와야됨 (전송할때는 네임값)
-			String phone = request.getParameter("phone"); //네임값 가져와야됨 (전송할때는 네임값)
-			String _gender = request.getParameter("gender"); //네임값 가져와야됨 (전송할때는 네임값)
-			String[] _hobby = request.getParameterValues("hobby"); //네임값 가져와야됨 (전송할때는 네임값)
+			String memberId = request.getParameter("memberId"); 
+			String password = request.getParameter("password"); 
+			String memberName = request.getParameter("memberName"); 
+			String _birthday = request.getParameter("birthday"); 
+			String email = request.getParameter("email"); 
+			String phone = request.getParameter("phone"); 
+			String _gender = request.getParameter("gender"); 
+			String[] _hobby = request.getParameterValues("hobby"); 
 			
 			Date birthday = !"".equals(_birthday) ?  ( Date.valueOf(_birthday)) : null;
 			Gender gender =  _gender != null ? ( Gender.valueOf(_gender) ) : null;
@@ -79,7 +76,7 @@ public class MemberEnrollServlet extends HttpServlet {
 		}
 		
 		// 4. 리다이렉트  - /mvc/ 
-		response.sendRedirect(request.getContextPath()  + "/"  ); //클라이언트가 다시 요청할주소 
+		response.sendRedirect(request.getContextPath()  + "/"  );
 			
 		
 	}
