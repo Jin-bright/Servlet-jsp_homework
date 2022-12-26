@@ -33,7 +33,7 @@ public class MemberView extends HttpServlet {
 	}
 
 	/** POST - /mvc/member/memberUpdate 
-	 * update member set name = ?, birthday = ?, email = ?, phone = ?  where id = ?
+	 * 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -74,7 +74,7 @@ public class MemberView extends HttpServlet {
 			e.printStackTrace();
 		}
 		// 4. 리다이렉트  - /mvc/ 
-		response.sendRedirect(request.getContextPath()  + "/"  ); //클라이언트가 다시 요청할주소 
+		response.sendRedirect(request.getContextPath()  + "/"  ); 
 				
 	}
 
