@@ -4,7 +4,7 @@
 
 <% //자바영역
 	Member loginMember = (Member) session.getAttribute("loginMember"); //object -> member  
-	// session에서 꺼내는걸로바꼈다 (원래는 request였음 )
+	
 	
 //	Member insertMember = (Member) session.getAttribute("insertMember"); 
 	
