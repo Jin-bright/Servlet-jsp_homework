@@ -77,7 +77,7 @@ public class MemberDao {
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getPassword());
 			pstmt.setString(3, member.getMemberName());
-			pstmt.setString(4, member.getGender().toString() ); // 이렇게 해도 잘 넣어지긴한다..? 오 toString이랑 .name도됨,, 
+			pstmt.setString(4, member.getGender().toString() ); 
 			pstmt.setDate(5, member.getBirthday() );
 			pstmt.setString(6, member.getEmail());
 			pstmt.setString(7, member.getPhone());
@@ -107,7 +107,7 @@ public class MemberDao {
 			pstmt.setString(3,email );
 			pstmt.setString(4, phone );
 			
-			pstmt.setString(5, gender.toString() ); // 이렇게 해도 잘 넣어지긴한다..? 오 toString이랑 .name도됨,, 
+			pstmt.setString(5, gender.toString() ); 
 			pstmt.setString(6, hobby );
 			pstmt.setString(7, memberId );
 			result = pstmt.executeUpdate();
