@@ -23,7 +23,6 @@ public class MemberLogoutServlet extends HttpServlet {
 		
 		// 1. 로그아웃 처리
 		HttpSession session = request.getSession(false); //create 여부. 세션이 존재하지않는경우 생성하지 말고  null반환 
-		System.out.println( "session false처리 했을때 getid값(원래세션값인데,,): " + session.getId() );
 		if( session != null ) {
 			session.invalidate();
 		}
