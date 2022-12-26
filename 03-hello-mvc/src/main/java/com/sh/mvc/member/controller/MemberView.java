@@ -40,17 +40,17 @@ public class MemberView extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		
-		//1.사용자입력값 가져오기  -> 멤버객체에 담아야되나 ????? 그러면 객체가 다시만들어지는거아닌가 ? 
+		//1.사용자입력값 가져오기  
 		try {
 			Member loginMember = (Member) session.getAttribute("loginMember"); //지금 로그인된 멤버정보 			
 			String memberId = loginMember.getMemberId();// 지금 로그인된 아이디가 나와야됨 
 			
-			String memberName = request.getParameter("memberName"); //네임값 가져와야됨 (전송할때는 네임값)
-			String _birthday = request.getParameter("birthday"); //네임값 가져와야됨 (전송할때는 네임값) /"1988-08-08" 이걸 sql date로 바꿔야됨 
-			String _email = request.getParameter("email"); //네임값 가져와야됨 (전송할때는 네임값)
+			String memberName = request.getParameter("memberName"); 
+			String _birthday = request.getParameter("birthday"); 
+			String _email = request.getParameter("email"); 
 			String phone = request.getParameter("phone");
-			String _gender = request.getParameter("gender"); //네임값 가져와야됨 (전송할때는 네임값)
-			String[] _hobby = request.getParameterValues("hobby"); //네임값 가져와야됨 (전송할때는 네임값)
+			String _gender = request.getParameter("gender"); 
+			String[] _hobby = request.getParameterValues("hobby"); 
 			
 			String email = !"".equals(_email) ? (  request.getParameter("email") ) : loginMember.getEmail(); // 입력안했으면 기존 정보 그대로 나오도록 
 			Date birthday = !"".equals(_birthday) ? ( Date.valueOf(_birthday)) : loginMember.getBirthday();
