@@ -2,13 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<% //자바영역
+<% 
 	Member loginMember = (Member) session.getAttribute("loginMember"); //object -> member  
-	
-	
-//	Member insertMember = (Member) session.getAttribute("insertMember"); 
-	
-	
 	
 	String msg = (String)session.getAttribute("msg");
 
@@ -55,16 +50,16 @@ window.addEventListener('load', () => {
 			alert("유효한 아이디를 입력하세요.");
 			memberId.select();
 			
-			e.preventDefault(); //폼제출방지용
-			return; // 조기리턴 
+			e.preventDefault(); 
+			return; 
 		}
 		
 		if(!/^\w{4,}$/.test(password.value)){
 			alert("유효한 아이디를 입력하세요.");
 			password.select();
 	
-			e.preventDefault(); //폼제출방지용
-			return; // 조기리턴 
+			e.preventDefault(); 
+			return; 
 		}
 	});
 	<% } %>	
