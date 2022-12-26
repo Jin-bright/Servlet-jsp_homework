@@ -42,8 +42,8 @@ public class MemberView extends HttpServlet {
 		
 		//1.사용자입력값 가져오기  
 		try {
-			Member loginMember = (Member) session.getAttribute("loginMember"); //지금 로그인된 멤버정보 			
-			String memberId = loginMember.getMemberId();// 지금 로그인된 아이디가 나와야됨 
+			Member loginMember = (Member) session.getAttribute("loginMember"); // ★이거맞는지확인			
+			String memberId = loginMember.getMemberId();
 			
 			String memberName = request.getParameter("memberName"); 
 			String _birthday = request.getParameter("birthday"); 
@@ -66,7 +66,6 @@ public class MemberView extends HttpServlet {
 			if(result > 0) {
 				 System.out.println("회원정보 수정 성공 !");
 				 session.setAttribute("msg", "회원정보를 수정하였습니다😊");
-				//회원가입 성공 메세지 
 			}
 		}
 		catch(Exception e){
