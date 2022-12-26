@@ -12,7 +12,6 @@ import com.sh.mvc.member.model.dto.Member;
 /** Service 
  * - connection 만들고 전달 
  * 
- * @author brigh
  *
  */
 public class MemberService {
