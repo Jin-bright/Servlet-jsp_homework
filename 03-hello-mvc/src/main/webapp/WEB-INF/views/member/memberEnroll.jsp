@@ -85,7 +85,7 @@ document.memberEnrollFrm.onsubmit  = () => {
 		alert("아이디는 영문자/숫자 4글자 이상이어야 합니다.");
 
 		memberId.select();
-		return false;  //e.pre~이거 onsubmit은 필수아님 		
+		return false;  		
 	}
 	
 
@@ -95,7 +95,7 @@ document.memberEnrollFrm.onsubmit  = () => {
 		alert("비밀번호는 영문자/숫자/특수문자!@#$% 포함 4글자 이상이어야 합니다.");
 	
 		password.select();
-		return false;  //e.pre~이거 onsubmit은 필수아님 
+		return false;  
 	}
 	
 	if( password.value !== passwordCheck.value ){
@@ -109,11 +109,11 @@ document.memberEnrollFrm.onsubmit  = () => {
 		alert("이름은 한글 2글자 이상이어야 합니다.");
 	
 		memberName.select();
-		return false;  //e.pre~이거 onsubmit은 필수아님 
+		return false;  
 	}
 	
 	//4. 전화번호는 숫자 01012345678 형식  
-	if( !/^010[0-9]{8}$/.test(phone.value)){  //앞에 010 세글자로 시작한다고해서 뒤에 $붙이면 안됨,, 
+	if( !/^010[0-9]{8}$/.test(phone.value)){  
 		alert("전화번호가 유효하지 않습니다.");
 	
 		phone.select();
