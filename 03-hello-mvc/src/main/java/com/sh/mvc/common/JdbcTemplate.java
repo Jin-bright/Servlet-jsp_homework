@@ -12,13 +12,11 @@ import java.util.Properties;
 public class JdbcTemplate {  // class.forname 등등 예외처리 등 다 해놓은 template 
 	
 	static String driverClass;
-	static String url;   // 접속프로토콜 @url:port:sid
+	static String url;  
 	static String user; 
 	static String password; 
 	
-	static {
-		//프로그램 내에서 JdbcTemplate을 처음 사용하기 직전에 단한번 실행 - 원래 기존에 했던 거  비교해보기 
-		// /의 의미 -> build / classes 의 루트 디렉토리를 의미한다  
+	static {  
 		final String datasourceConfigPath = JdbcTemplate.class.getResource("/datasource.properties").getPath();
 		System.out.println( datasourceConfigPath );
 		Properties prop = new Properties();
