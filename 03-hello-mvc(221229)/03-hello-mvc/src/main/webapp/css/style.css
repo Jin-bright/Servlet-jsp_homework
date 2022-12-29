@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";
+div, section, header, aside, footer {padding:10px;}
+
+/********** 전체컨테이너 **********/
+div#container	{background-color:#F0F0F0; width:960px; margin:0 auto;}
+
+/********** header **********/
+header			{background: #00bcd4 url('/mvc/images/Java-Servlets-JSP.png') 21% 5%/18% no-repeat; height:130px; position:relative; padding:10px 0 0 0;}
+header h1 		{margin-left:10px;}
+
+/* 로그인컨테이너 */
+header div.login-container{width:250px; position:absolute; right: 0px; top: 10px;}
+
+/* 로그인테이블관련 : 탭순서를 고려한 배치 */
+#loginFrm table{empty-cells:hide;}
+#loginFrm input[type=submit]{width:60px; height:50px; color:white; background:#3300ff; position:absolute; top:14px;}
+#loginFrm input[type=button]{border-radius:3px;}
+#saveId+label{font-size:12px;font-family:'고딕'}
+
+/* 로그인성공후 */
+div.login-container table#logged-in{border-spacing:10px;}
+div.login-container table#logged-in input[type=button]{border-radius:3px;}
+
+/* 알림흔들림 효과처리 */
+.bell {
+  transform-origin: top;
+  animation: bell 2s infinite linear;
+}
+
+@keyframes bell{
+  0%, 50%{
+    transform: rotate(0deg);
+	}
+  5%, 15%, 25%, 35%, 45% {
+    transform: rotate(13deg);
+  }
+  10%, 20%, 30%, 40% {
+    transform: rotate(-13deg);
+  }
+}
+
+/* 메뉴관련스타일 */
+header nav {background:#5283de; width:100%; margin-top:40px;}
+/* ul태그의 가운데정렬 */
+ul.main-nav{
+	display:table;
+	padding:0px;
+	margin:auto;
+}
+ul.main-nav li { 
+	list-style-type: none; 
+	width: 8em; 
+	height: 2em;
+	float: left; 
+	text-align: center; 
+	font-family: "휴먼모음T", sans-serif; 
+	border-left: 1px #00bcd4 solid;
+	background-color: #5283de; 
+	/* 메뉴밑줄트랜지션용 */
+	position:relative;	
+}
+ul.main-nav li:last-of-type{border-right:1px #00bcd4 solid;}
+ul.main-nav li a {
+    /*a태그의 display기본값은 inline임*/
+    /* inline요소의 padding, margin은 제대로 동작하지 않음.(컨텐츠의 시각요소기준으로 제멋대로임	) */
+	display: block;
+	padding:.4em;
+	text-decoration: none;
+	color: #292929;
+}
+/* hover시 배경색 변경 */
+ul.main-nav li:hover{
+	background-color: #3300ff;
+}
+ul.main-nav li:hover > a{
+	color:#FFF; /* 글자색*/
+}
+/* 메뉴밑줄효과 */
+ul.main-nav li span.animate_line{
+	position: absolute;
+	/* position:absolute;=> display:block;으로 되면서, 너비, 높이를 가진다. */
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #FCE72E;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+ul.main-nav li:hover span.animate_line{
+	width:100%;
+}
+
+
+/********** content **********/
+section#content		{background-color:#F5F5F5; float:left; width:940px; min-height:500px; }
+
+/* 회원가입페이지 */
+section#enroll-container {text-align:center;}
+section#enroll-container input{margin:3px;}
+section#enroll-container table{margin:0 auto;}
+section#enroll-container table th {padding:0 10px; text-align:right;}
+section#enroll-container table td {padding:0 10px; text-align:left;}
+section#enroll-container sup{color: red;}
+
+/* 회원정보보기 */
+section#enroll-container input[readonly]{background:lightgray;}
+
+
+
+/********** footer **********/
+footer				{ background-color:#00bcd4; clear:both; height:75px; text-align:center;padding-top:40px;}
